@@ -6,16 +6,16 @@ import(
 	"strings"
 )
 
-// Reader is a function designed to extract the tetrominoes from a given file.
+// Reader is a function designed to extract the tetrominoeses from a given file.
 // It does the following:
 // - Ensures that other than the program name there is only 1 other argument passed 
-//   by the user, which is the name of the file containing the tetrominoes.
+//   by the user, which is the name of the file containing the tetrominoeses.
 // - Processes the data by replacing the '#' character with a letter and '.' remains
 //   the same.
 // - Returns a 2D array.
 func Reader()[][]string{
-	var tet []string
-	var tetromino [][]string
+	var tetromino []string
+	var tetrominoes [][]string
 	var str strings.Builder
 	letter := 'A'
 
@@ -45,14 +45,14 @@ func Reader()[][]string{
 					os.Exit(0)
 				}
 			}
-			tet = append(tet, str.String())
+			tetromino = append(tetromino, str.String())
 		}
 		if line == "" || i == len(fileOutputLines)-1{
-			tetromino = append(tetromino, tet)
-			tet = []string{}
+			tetrominoes = append(tetrominoes, tetromino)
+			tetromino = []string{}
 			letter++
 		}
 	}
 
-return tetromino
+return tetrominoes
 }
