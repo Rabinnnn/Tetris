@@ -30,3 +30,19 @@ func getColumsWithLetters(rows []string, letters string) []bool{
 	}
 	return columnWithLetters
 }
+
+//trimRowsByColumns is a helper function to trim the rows based on valid columns
+//i.e columns that have letter(s)
+func trimRowsByColumns(rows []string, columnWithLetters []bool) []string{
+	var trimmedRows []string
+	for _, row := range rows{
+		var newRow strings.Builder
+		for col := 0; col < len(row); col++{
+			if columnWithLetters[col]{
+				newRow.WriteByte(row[col])
+			}
+		}
+		trimmedRows = append(trimmedRows, newRow.String())
+	}
+	return trimmedRows
+}
