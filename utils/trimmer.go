@@ -14,3 +14,19 @@ func filterRows(tetromino []string, letters string) []string{
 	}
 	return output
 }
+
+//getColumnsWithLetters is a helper function used to identify columns
+//that have letter(s)
+func getColumsWithLetters(rows []string, letters string) []bool{
+	width := len(rows[0])
+	columnWithLetters := make([]bool, width)
+
+	for _, row := range rows{
+		for col := 0; col < width; col++{
+			if strings.ContainsRune(letters, rune(row[col])){
+				columnWithLetters[col] = true
+			}
+		}
+	}
+	return columnWithLetters
+}
