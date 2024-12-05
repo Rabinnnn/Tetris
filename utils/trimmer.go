@@ -2,7 +2,26 @@ package utils
 
 import "strings"
 
-var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//Trimmer is a function that removes the rows and columns that do not contain 
+//uppercase letters (A-Z) thus effectively trimming the empty rows and columns 
+//from the shapes.
+func Trimmer(tetrominoes [][]string) [][]string{
+	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var trimmedTetrominoes [][]string
+
+	for _, tetromino := range tetrominoes{
+		filteredRows := filterRows(tetromino, letters)
+		if len(filteredRows) == 0{
+			continue
+		}
+
+		columnWithLetters := getColumsWithLetters(filteredRows, letters)
+		trimmedTetrominoes = append(trimmedTetrominoes, trimRowsByColumns(filteredRows,columnWithLetters))
+
+	}
+	return trimmedTetrominoes
+}
+
 // filterRows is a helper function that filters out empty rows
 // i.e rows that don't contain letters
 func filterRows(tetromino []string, letters string) []string{
