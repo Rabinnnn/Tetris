@@ -28,3 +28,14 @@ func placeTetromino(board [][]string, tetromino []string, x, y int){
 		}
 	}
 }
+
+//removeTetromino takes a tetromino at the given coordinates off the board.
+func removeTetromino(board [][]string, tetromino []string, x, y int){
+	for i, row := range tetromino{
+		for j, char := range row{
+			if char != '.'{
+				board[x+j][y+i] = "."
+			}
+		}
+	}
+}
