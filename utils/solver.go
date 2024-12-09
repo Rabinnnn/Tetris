@@ -5,7 +5,7 @@ func SolveBoard(board [][]string, tetrominoes [][]string) [][]string{
 	if solved(board, tetrominoes, 0){
 		return board
 	}
-	return [][]string{}
+	return nil
 }
 
 // isPlaceable checks if a give tetromino can be placed in certain coordinates within the board.
