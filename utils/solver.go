@@ -39,3 +39,21 @@ func removeTetromino(board [][]string, tetromino []string, x, y int){
 		}
 	}
 }
+
+func solved(board [][]string, tetrominoes [][]string, index int)bool{
+	tetromino := tetrominoes[index]
+
+	for i := range board{
+		for j := range board[i]{
+			if isPlaceable(board, tetromino,i,j){
+				placeTetromino(board,tetromino,i,j)
+				if solved(board, tetrominoes, index+1){
+					return true
+				}
+
+				removeTetromino(board,tetromino, i, j)
+			}
+		}
+	}
+return false
+}
