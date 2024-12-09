@@ -40,6 +40,11 @@ func removeTetromino(board [][]string, tetromino []string, x, y int){
 	}
 }
 
+//solved is a function that tries to solve the puzzle through recurssion.
+//It checks if a tetromino can be placed in a certain position first. If it's
+//possible it places it there, otherwise it tries the next position. After placing
+//it the function calls itself with the index incremented(to get the next tetromino).
+//If the state of the board is !solved the tetromino is removed from the position.
 func solved(board [][]string, tetrominoes [][]string, index int)bool{
 	tetromino := tetrominoes[index]
 
