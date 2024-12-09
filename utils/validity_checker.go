@@ -41,7 +41,7 @@ func HasSixContacts(tetromino []string)bool{
 // - ensuring the number of tetromines provided doesn't exceed 26 (for the 26 letters of alphabet).
 // - ensuring each tetromino has exactly 4 rows and 4 columns i.e 4 X 4 grid.
 // - ensuring the blocks that make up a tetromino are contiguos
-func isValid(tetrominoes [][]string)string{
+func importsValid(tetrominoes [][]string)string{
 	if len(tetrominoes) > 26 {
 		return "ERROR"
 	}
