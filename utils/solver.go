@@ -17,3 +17,14 @@ func isPlaceable(board [][]string, tetromino []string, x, y int)bool{
 	}
 	return true
 }
+
+//placeTetromino inserts a tetromino at a certain position on the board using the coordinates provided.
+func placeTetromino(board [][]string, tetromino []string, x, y int){
+	for i, row := range tetromino{
+		for j, char := range row{
+			if char != '.'{
+				board[x+j][y+i] = string(char)
+			}
+		}
+	}
+}
