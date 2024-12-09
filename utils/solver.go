@@ -1,5 +1,13 @@
 package utils
 
+// SolveBoard returns the solved board if it is solveable otherwise it returns an empty 2D slice
+func SolveBoard(board [][]string, tetrominoes [][]string) [][]string{
+	if solved(board, tetrominoes, 0){
+		return board
+	}
+	return [][]string{}
+}
+
 // isPlaceable checks if a give tetromino can be placed in certain coordinates within the board.
 // It iterates through the characters of the tetromino to determine if:
 // -the character is not a dot(representing empty space)
@@ -51,7 +59,7 @@ func solved(board [][]string, tetrominoes [][]string, index int)bool{
 	if index == len(tetrominoes){
 		return true
 	}
-	
+
 	for i := range board{
 		for j := range board[i]{
 			if isPlaceable(board, tetromino,i,j){
