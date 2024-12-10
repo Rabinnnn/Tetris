@@ -31,7 +31,7 @@ func placeTetromino(board [][]string, tetromino []string, x, y int){
 	for i, row := range tetromino{
 		for j, char := range row{
 			if char != '.'{
-				board[x+j][y+i] = string(char)
+				board[y+i][x+j] = string(char)
 			}
 		}
 	}
@@ -42,7 +42,7 @@ func removeTetromino(board [][]string, tetromino []string, x, y int){
 	for i, row := range tetromino{
 		for j, char := range row{
 			if char != '.'{
-				board[x+j][y+i] = "."
+				board[y+i][x+j] = "."
 			}
 		}
 	}
@@ -63,13 +63,13 @@ func solved(board [][]string, tetrominoes [][]string, index int)bool{
 
 	for i := range board{
 		for j := range board[i]{
-			if isPlaceable(board, tetromino,i,j){
-				placeTetromino(board,tetromino,i,j)
+			if isPlaceable(board, tetromino,j,i){
+				placeTetromino(board,tetromino,j,i)
 				if solved(board, tetrominoes, index+1){
 					return true
 				}
 
-				removeTetromino(board,tetromino, i, j)
+				removeTetromino(board,tetromino, j, i)
 			}
 		}
 	}
