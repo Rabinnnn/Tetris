@@ -27,7 +27,7 @@ func Trimmer(tetrominoes [][]string) [][]string{
 func filterRows(tetromino []string, letters string) []string{
 	var output[]string
 	for _, row := range tetromino{
-		if strings.IndexAny(row, letters) != 1{
+		if strings.IndexAny(row, letters) != -1{
 			output = append(output, row)
 		}
 	}
