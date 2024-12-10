@@ -43,21 +43,21 @@ func HasSixContacts(tetromino []string)bool{
 // - ensuring the blocks that make up a tetromino are contiguos
 func IsValid(tetrominoes [][]string)string{
 	if len(tetrominoes) > 26 {
-		return "ERROR1"
+		return "ERROR"
 	}
 
 	for _, tetromino := range tetrominoes{
 		if len(tetromino) != 4{
-			return "ERROR2"
+			return "ERROR"
 		}
 
 		if !HasSixContacts(tetromino){
-			return "ERROR3"
+			return "ERROR"
 		}
 
 		for _, row := range tetromino{
 			if len(row) != 4{
-				return "ERROR4"
+				return "ERROR"
 			}
 		}
 	}
