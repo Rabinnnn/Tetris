@@ -54,11 +54,12 @@ func removeTetromino(board [][]string, tetromino []string, x, y int){
 //it the function calls itself with the index incremented(to get the next tetromino).
 //If the state of the board is !solved the tetromino is removed from the position.
 func solved(board [][]string, tetrominoes [][]string, index int)bool{
-	tetromino := tetrominoes[index]
 
 	if index == len(tetrominoes){
 		return true
 	}
+
+	tetromino := tetrominoes[index]
 
 	for i := range board{
 		for j := range board[i]{
