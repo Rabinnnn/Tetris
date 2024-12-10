@@ -16,7 +16,7 @@ import(
 func Reader()[][]string{
 	var tetromino []string
 	var tetrominoes [][]string
-	var str strings.Builder
+	//var str strings.Builder
 	letter := 'A'
 
 	if len(os.Args) != 2{
@@ -35,6 +35,7 @@ func Reader()[][]string{
 
 	for i, line := range fileOutputLines{
 		if line != ""{
+			var str strings.Builder
 			for _, char := range line{
 				if char == '#'{
 					str.WriteRune(letter)
