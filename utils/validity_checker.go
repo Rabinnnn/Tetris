@@ -3,35 +3,35 @@ package utils
 // HasSixContacts checks if a given tetromino is made up of contiguos blocks.
 // This is done by ensuring that the points of contact among the 4 blocks adds up to atleast 6.
 // The function also ensures that each tetromino has exactly 4 characters to be considered valid.
-func HasSixContacts(tetromino []string)bool{
+func HasSixContacts(tetromino []string) bool {
 	charCount := 0
 	contactCount := 0
 
-	for i, row := range tetromino{
-		for j, char := range row{
+	for i, row := range tetromino {
+		for j, char := range row {
 			if char != '.' {
 				charCount++
 
-				if i > 0 && tetromino[i-1][j] == byte(char){
+				if i > 0 && tetromino[i-1][j] == byte(char) {
 					contactCount++
 				}
 
-				if i < len(tetromino)-1 && tetromino[i+1][j] == byte(char){
+				if i < len(tetromino)-1 && tetromino[i+1][j] == byte(char) {
 					contactCount++
 				}
 
-				if j > 0 && tetromino[i][j-1] == byte(char){
+				if j > 0 && tetromino[i][j-1] == byte(char) {
 					contactCount++
 				}
 
-				if j < len(row) - 1 && tetromino[i][j+1] == byte(char){
+				if j < len(row)-1 && tetromino[i][j+1] == byte(char) {
 					contactCount++
 				}
 			}
 		}
 	}
 
-	if contactCount < 6 || charCount != 4{
+	if contactCount < 6 || charCount != 4 {
 		return false
 	}
 	return true
@@ -41,22 +41,22 @@ func HasSixContacts(tetromino []string)bool{
 // - ensuring the number of tetromines provided doesn't exceed 26 (for the 26 letters of alphabet).
 // - ensuring each tetromino has exactly 4 rows and 4 columns i.e 4 X 4 grid.
 // - ensuring the blocks that make up a tetromino are contiguos
-func IsValid(tetrominoes [][]string)string{
+func IsValid(tetrominoes [][]string) string {
 	if len(tetrominoes) > 26 {
 		return "ERROR"
 	}
 
-	for _, tetromino := range tetrominoes{
-		if len(tetromino) != 4{
+	for _, tetromino := range tetrominoes {
+		if len(tetromino) != 4 {
 			return "ERROR"
 		}
 
-		if !HasSixContacts(tetromino){
+		if !HasSixContacts(tetromino) {
 			return "ERROR"
 		}
 
-		for _, row := range tetromino{
-			if len(row) != 4{
+		for _, row := range tetromino {
+			if len(row) != 4 {
 				return "ERROR"
 			}
 		}

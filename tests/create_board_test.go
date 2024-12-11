@@ -18,7 +18,6 @@ func TestCreateBoard(t *testing.T) {
 	}{
 		{name: "Two", args: args{size: 2}, want: [][]string{{".", "."}, {".", "."}}},
 		{name: "Three", args: args{size: 3}, want: [][]string{{".", ".", "."}, {".", ".", "."}, {".", ".", "."}}},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -5,7 +5,6 @@ import (
 	"tetris/utils"
 )
 
-
 func TestHasSixContacts(t *testing.T) {
 	type args struct {
 		tetromino []string
@@ -15,9 +14,8 @@ func TestHasSixContacts(t *testing.T) {
 		args args
 		want bool
 	}{
-		{name: "6Contacts", args: args{tetromino: []string{"...#", "...#", "...#", "...#"}}, want:true},
-		{name: "5Contacts", args: args{tetromino: []string{"...#", "...#", "...#", "..#."}}, want:false},
-
+		{name: "6Contacts", args: args{tetromino: []string{"...#", "...#", "...#", "...#"}}, want: true},
+		{name: "5Contacts", args: args{tetromino: []string{"...#", "...#", "...#", "..#."}}, want: false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -27,7 +25,6 @@ func TestHasSixContacts(t *testing.T) {
 		})
 	}
 }
-
 
 func TestIsValid(t *testing.T) {
 	type args struct {
@@ -40,7 +37,6 @@ func TestIsValid(t *testing.T) {
 	}{
 		{name: "case1", args: args{tetrominoes: [][]string{{"...A", "...A", "...A", "...A"}, {"....", "....", "....", "BBBB"}}}, want: "OK"},
 		{name: "case2", args: args{tetrominoes: [][]string{{"...A", "..A.", "...A", "...A"}, {"....", "....", "....", "BBBB"}}}, want: "ERROR"},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

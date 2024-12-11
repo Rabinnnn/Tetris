@@ -10,8 +10,7 @@ func TestReader(t *testing.T) {
 	tests := []struct {
 		name string
 		want [][]string
-	}{
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := utils.Reader(); !reflect.DeepEqual(got, tt.want) {

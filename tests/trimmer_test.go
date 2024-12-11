@@ -80,7 +80,6 @@ func TestTrimmer(t *testing.T) {
 		want [][]string
 	}{
 		{name: "case1", args: args{tetrominoes: [][]string{{"...A", "...A", "...A", "...A"}, {"....", "....", "....", "BBBB"}}}, want: [][]string{{"A", "A", "A", "A"}, {"BBBB"}}},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
