@@ -10,13 +10,13 @@ func Trimmer(tetrominoes [][]string) [][]string{
 	var trimmedTetrominoes [][]string
 
 	for _, tetromino := range tetrominoes{
-		filteredRows := filterRows(tetromino, letters)
+		filteredRows := FilterRows(tetromino, letters)
 		if len(filteredRows) == 0{
 			continue
 		}
 
-		columnWithLetters := getColumsWithLetters(filteredRows, letters)
-		trimmedTetrominoes = append(trimmedTetrominoes, trimRowsByColumns(filteredRows,columnWithLetters))
+		columnWithLetters := GetColumsWithLetters(filteredRows, letters)
+		trimmedTetrominoes = append(trimmedTetrominoes, TrimRowsByColumns(filteredRows,columnWithLetters))
 
 	}
 	return trimmedTetrominoes
@@ -24,7 +24,7 @@ func Trimmer(tetrominoes [][]string) [][]string{
 
 // filterRows is a helper function that filters out empty rows
 // i.e rows that don't contain letters
-func filterRows(tetromino []string, letters string) []string{
+func FilterRows(tetromino []string, letters string) []string{
 	var output[]string
 	for _, row := range tetromino{
 		if strings.IndexAny(row, letters) != -1{
@@ -36,7 +36,7 @@ func filterRows(tetromino []string, letters string) []string{
 
 //getColumnsWithLetters is a helper function used to identify columns
 //that have letter(s)
-func getColumsWithLetters(rows []string, letters string) []bool{
+func GetColumsWithLetters(rows []string, letters string) []bool{
 	width := len(rows[0])
 	columnWithLetters := make([]bool, width)
 
@@ -52,7 +52,7 @@ func getColumsWithLetters(rows []string, letters string) []bool{
 
 //trimRowsByColumns is a helper function to trim the rows based on valid columns
 //i.e columns that have letter(s)
-func trimRowsByColumns(rows []string, columnWithLetters []bool) []string{
+func TrimRowsByColumns(rows []string, columnWithLetters []bool) []string{
 	var trimmedRows []string
 	for _, row := range rows{
 		var newRow strings.Builder
